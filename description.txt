@@ -1,0 +1,17 @@
+Author: Dominoes
+Title: Modern AFK Script
+Utilizes a system similar to Munk's Server Pack's status package to make a new AFK add-on, complete with shape name changing.
+
+Commands (don't use <> when putting in the extra text):
+
+/afk <reason>
+Adds an "AFK" tag to your player's shape name, alongside creating a repeating message showing the reason put in place of <reason>.
+
+/brb <reason>
+Same as AFK, except puts "BRB" in place of "AFK" as the extra text in the shape name, and also sets the message to be prefixed with "...will be right back:".
+
+/back
+Removes the AFK tag and announces that you are back, also stopping the repeating message in chat.
+
+/togglenamechanges
+SA+ | Toggles whether the script makes the user's name change when they use the /afk  or /brb commands.
