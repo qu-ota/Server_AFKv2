@@ -1,2 +1,2 @@
 # Server_AFKv2
-new, modern afk addon
+references for add-on so downloading extra files isn't necessary
