@@ -27,7 +27,10 @@ function serverCmdAfk(%client, %c1, %c2, %c3, %c4, %c5, %c6, %c7, %c8, %c9, %c10
 				%client.status = "afk";
 				%client.canStatus = 0;
 				schedule(5000, 0, canstatusnow, %client);
-				%client.player.setShapeName(%client.name SPC "(AFK)", 8564862);
+				if($afkNameChanges = 1)
+				{
+					%client.player.setShapeName(%client.name SPC "(AFK)", 8564862);
+				}
 			}
 			else
 			{
@@ -36,7 +39,10 @@ function serverCmdAfk(%client, %c1, %c2, %c3, %c4, %c5, %c6, %c7, %c8, %c9, %c10
 				%client.status = "afk";
 				%client.canStatus = 0;
 				schedule(5000, 0, canstatusnow, %client);
-				%client.player.setShapeName(%client.name SPC "(AFK)", 8564862);
+				if($afkNameChanges = 1)
+				{
+					%client.player.setShapeName(%client.name SPC "(AFK)", 8564862);
+				}
 			}
 		}
 		else
