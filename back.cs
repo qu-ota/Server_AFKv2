@@ -14,6 +14,9 @@ function serverCmdBack(%client)
 		messageAll('',"\c3" @ %client.name @ "<color:C8B560> is back!");
 		%client.reason = "";
 		%client.status = "here";
-		%client.player.setShapeName(%client.name, 8564862);
+		if($StatusModv2::ChangeShapename == 1)
+		{
+			%client.player.setShapeName(%client.name, 8564862);
+		}
 	}
 }
