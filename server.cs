@@ -10,8 +10,12 @@ if(isFile("./afk.cs"))
 	exec("./afk.cs");
 if(isFile("./brb.cs"))
 	exec("./brb.cs");
-//if(isFile("./commands.cs"))
-//	exec("./commands.cs");
+if(isFile("./back.cs");
+	exec("./back.cs");
+if(isFile("./prefs.cs");
+	exec("./prefs.cs");
+if(isFile("./commands.cs"))
+	exec("./commands.cs");
 
 //now for the extra functions
 
