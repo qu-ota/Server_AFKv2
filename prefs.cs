@@ -12,5 +12,15 @@ if($PrefManagerEnabled = 1)
 		RTB_registerPref("Change Shapenames When AFK?","Status Mod v2","StatusModv2::ChangeShapename","bool","Server_StatusModv2",1,0,0);
 	}
 }
+else
+{
+	$StatusModv2::AnnounceAFK = 1;
+	$StatusModv2::LoopTime = 300;
+	$StatusModv2::ChangeShapename = 1;
+}
 
-//Adding commands soon
+function serverCmdAnnounceAFK(%client, %value)
+{
+	if(%client.isSuperAdmin)
+	{
+		//to be continued
