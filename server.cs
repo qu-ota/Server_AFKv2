@@ -26,7 +26,7 @@ function canStatusNow(%client)
 
 function announceafkloop()
 {
-	if($StatusMod::AnnounceAFK == 1)
+	if($StatusModv2::AnnounceAFK == 1)
 	{
 		for(%i = 0; %i < ClientGroup.getCount(); %i++)
 		{
@@ -37,5 +37,5 @@ function announceafkloop()
 			}
 		}        
 	}
-	schedule($StatusMod::LoopTime * 1000, 0, announceafkloop);
+	schedule($StatusModv2::LoopTime * 1000, 0, announceafkloop);
 }
