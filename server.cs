@@ -34,6 +34,7 @@ function announceafkloop()
 			if(%cl.status $= "afk")
 			{
 				messageall('',"\c3" @ %cl.name @ "\c6 Is AFK: \c4" @ %cl.reason);
+				%cl.player.setShapeName(%cl.name SPC "(AFK)", 8564862);
 			}
 		}        
 	}
