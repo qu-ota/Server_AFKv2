@@ -1,17 +1,14 @@
 //Separate file for prefs just for organization alongside commands for managing said prefs (just for organization)
 //When adding new stuff that utilizes prefs, just add the pref in this file and its associated command
 
-$PrefManagerEnabled = if(isFile("Add-Ons/System_ReturnToBlockland/server.cs") || isFile("Add-Ons/System_BlocklandGlass/server.cs"))
+if(isFile("Add-Ons/System_ReturnToBlockland/server.cs") || isFile("Add-Ons/System_BlocklandGlass/server.cs"))
 
-if($PrefManagerEnabled = 1)
+if(isFile("Add-Ons/System_BlocklandGlass/server.cs"))
 {
-	if(!$RTB::RTBR_ServerControl_Hook)
-	{
-		RTB_registerPref("Announce AFK","Status Mod v2","StatusModv2::AnnounceAFK","bool","Server_StatusModv2",1,0,0);
-		RTB_registerPref("Announce Time (Seconds)","Status Mod v2","StatusModv2::LoopTime","int 60 1200","StatusModv2",300,0,0);
-		RTB_registerPref("Change Shapenames When AFK?","Status Mod v2","StatusModv2::ChangeShapename","bool","Server_StatusModv2",1,0,0);
-		echo("[StatusModv2] Preferences registered successfully.");
-	}
+	RTB_registerPref("Announce AFK","Status Mod v2","StatusModv2::AnnounceAFK","bool","Server_StatusModv2",1,0,0);
+	RTB_registerPref("Announce Time (Seconds)","Status Mod v2","StatusModv2::LoopTime","int 60 1200","StatusModv2",300,0,0);
+	RTB_registerPref("Change Shapenames When AFK?","Status Mod v2","StatusModv2::ChangeShapename","bool","Server_StatusModv2",1,0,0);
+	echo("[StatusModv2] Preferences registered successfully.");
 }
 else
 {
@@ -52,28 +49,21 @@ function serverCmdAnnounceTime(%client, %value)
 	if(%client.isSuperAdmin)
 	{
 		if(%value == $StatusModv2::LoopTime)
-		{
 			messageClient(%client,'',"\c6Sorry, but the time you put in is the same value as the current preference's variable.");
-		}
 		else
-		{
 			if(%value >= 60 || %value <= 1200)
 			{
 				$StatusModv2::LoopTime = %value;
 				%minuteval = %value * 1000;
 				announce("\c3" @ %client.name @ " \c6has set the AFK announce time to \c4" @ %value @ " \c6 seconds, or \c4" @ %minuteval @ "\c6 per announcement.");
 			}
-		}
 		else
-		{
 			if(%value <= 61)
 			{
 				messageClient(%client,'',"\c6That value is too low! Determine the amount of time (in seconds) by multiplying your desired time (in minutes) by 60. The minimum time per announcement is 60 seconds.");
 				messageClient(%client,'',"\c7For example, if you wanted each announcement to be 5 minutes apart, multiply\c6 5 (minutes) \c7by\c6 60 (seconds) \c7and use the result \c7(300) \c7as the desired time.");
 			}
-		}
 		else
-		{
 			if(%value >= 1201)
 			{
 				messageClient(%client,'',"\c6That value is too high! Determine the amount of time (in seconds) by multiplying your desired time (in minutes) by 60. The maximum time per announcement is 1200 seconds");

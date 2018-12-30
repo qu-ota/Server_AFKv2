@@ -22,7 +22,7 @@ function serverCmdAfk(%client, %c1, %c2, %c3, %c4, %c5, %c6, %c7, %c8, %c9, %c10
 						%client.reason = %client.reason SPC %c[%a];
 					}
 				}
-				%client.reason = stripMLControlChars(trin(%client.reason));
+				%client.reason = stripMLControlChars(trim(%client.reason));
 				messageAll('',"\c3" @ %client.name @ "<color:C8B560> is now AFK: <color:ADD8E6>" @ %client.reason);
 				%client.status = "afk";
 				%client.canStatus = 0;
